@@ -142,15 +142,21 @@
       margin-top: 60px;
       position: relative;
       z-index: 2;
+      text-align: center;
     }
 
     .hero-image img {
       max-width: 250px;
-      width: 50%;
+      width: 70%;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 30px 80px rgba(211, 47, 47, 0.15);
       animation: float 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-image a:hover img {
+      transform: scale(1.05);
     }
 
     @keyframes float {
@@ -331,10 +337,14 @@
         gap: 20px;
       }
 
-      .cta-secondary {
+      .cta-button {
         display: block;
-        margin-left: 0;
-        margin-top: 12px;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .cta-secondary {
+        margin: 12px auto 0 auto;
       }
 
       .features h2,
@@ -343,7 +353,7 @@
       }
 
       .hero-image img {
-        max-width: 50%;
+        max-width: 70%;
       }
 
       .stat-item h4 {
@@ -364,15 +374,18 @@
 
   <section class="hero container">
     <div class="hero-content">
-          <h1>Rechercher. Trouver. Boxer.</h1>
-      <p>Connectez vos boxeurs avec les adversaires idéaux. Automatisez vos demandes de combats et organisez vos galas ou sparrings sans stress.</p>
+      <div class="tagline">🥊 Le réseau des champions</div>
+      <h1>Rechercher. Trouver. Boxer.</h1>
+      <p>Connectez vos boxeurs avec les adversaires idéaux. Automatisez vos demandes de combats et organisez vos interclubs sans stress.</p>
       <div>
-        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Essayer</a>
+        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Essayer gratuitement</a>
         <a href="#features" class="cta-button cta-secondary">En savoir plus</a>
       </div>
     </div>
     <div class="hero-image">
-      <img src="./img/logohitting.jpeg" alt="Logo Hitting">
+      <a href="https://hitting.fr" target="_blank" rel="noopener noreferrer">
+        <img src="./img/logohitting.jpeg" alt="Logo Hitting" style="cursor: pointer; transition: transform 0.3s;">
+      </a>
     </div>
   </section>
 
