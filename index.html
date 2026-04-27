@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hitting - Organisez vos combats d'interclubs</title>
+  <title>Hitting - Le réseau des champions</title>
   <style>
     * {
       margin: 0;
@@ -12,7 +12,7 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
       color: #1a1a1a;
       background: #ffffff;
       line-height: 1.6;
@@ -35,12 +35,16 @@
       top: 0;
       background: #ffffff;
       z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
-    .logo {
+    .logo-header {
       font-size: 24px;
-      font-weight: 600;
-      color: #1a1a1a;
+      font-weight: 800;
+      background: linear-gradient(135deg, #d32f2f, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     nav {
@@ -52,67 +56,185 @@
       color: #1a1a1a;
       text-decoration: none;
       font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
+      font-weight: 600;
+      transition: all 0.2s;
+      position: relative;
     }
 
     nav a:hover {
-      color: #666;
+      color: #d32f2f;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d32f2f;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
     }
 
     /* Hero Section */
     .hero {
       padding: 120px 0 80px;
       text-align: center;
+      position: relative;
+      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(211, 47, 47, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .tagline {
+      display: inline-block;
+      padding: 12px 24px;
+      background: rgba(211, 47, 47, 0.1);
+      border: 1px solid rgba(211, 47, 47, 0.3);
+      border-radius: 24px;
+      color: #d32f2f;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .hero h1 {
-      font-size: 56px;
-      font-weight: 600;
+      font-size: 64px;
+      font-weight: 800;
       margin-bottom: 24px;
-      line-height: 1.2;
+      line-height: 1.1;
       color: #1a1a1a;
     }
 
     .hero p {
-      font-size: 18px;
+      font-size: 20px;
       color: #666;
-      margin-bottom: 40px;
+      margin-bottom: 48px;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
-      line-height: 1.7;
+      line-height: 1.8;
+    }
+
+    .hero-image {
+      margin-top: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-image img {
+      max-width: 500px;
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 30px 80px rgba(211, 47, 47, 0.15);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
     }
 
     /* Buttons */
     .cta-button {
       display: inline-block;
-      padding: 16px 40px;
-      background: #1a1a1a;
+      padding: 18px 48px;
+      background: linear-gradient(135deg, #d32f2f, #ff6b6b);
       color: #ffffff;
-      border-radius: 8px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 16px;
       transition: all 0.3s;
       cursor: pointer;
       border: none;
+      box-shadow: 0 12px 30px rgba(211, 47, 47, 0.2);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .cta-button:hover {
-      background: #333;
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(211, 47, 47, 0.35);
+    }
+
+    .cta-secondary {
+      background: transparent;
+      border: 2px solid #1a1a1a;
+      color: #1a1a1a;
+      box-shadow: none;
+      margin-left: 16px;
+    }
+
+    .cta-secondary:hover {
+      background: #1a1a1a;
+      color: #ffffff;
+      border-color: #1a1a1a;
+    }
+
+    /* Stats Section */
+    .stats {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #0d47a1 0%, #1a237e 100%);
+      border-top: 1px solid #e5e5e5;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-item h4 {
+      font-size: 48px;
+      font-weight: 800;
+      color: #ff6b6b;
+      margin-bottom: 8px;
+    }
+
+    .stat-item p {
+      font-size: 14px;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
     }
 
     /* Features Section */
     .features {
-      padding: 80px 0;
+      padding: 100px 0;
+      background: #ffffff;
       border-top: 1px solid #e5e5e5;
     }
 
     .features h2 {
-      font-size: 40px;
-      font-weight: 600;
+      font-size: 48px;
+      font-weight: 800;
       margin-bottom: 60px;
       text-align: center;
       color: #1a1a1a;
@@ -120,31 +242,34 @@
 
     .features-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
     }
 
     .feature-card {
       padding: 40px 32px;
       border: 1px solid #e5e5e5;
-      border-radius: 12px;
+      border-radius: 16px;
       background: #f9f9f9;
       transition: all 0.3s;
+      text-align: center;
     }
 
     .feature-card:hover {
-      border-color: #1a1a1a;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-color: #d32f2f;
+      background: #ffffff;
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(211, 47, 47, 0.1);
     }
 
     .feature-icon {
-      font-size: 40px;
+      font-size: 48px;
       margin-bottom: 16px;
     }
 
     .feature-card h3 {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 700;
       margin-bottom: 12px;
       color: #1a1a1a;
     }
@@ -155,70 +280,26 @@
       line-height: 1.7;
     }
 
-    /* Benefits Section */
-    .benefits {
-      padding: 80px 0;
-      background: #f5f5f5;
-      border-top: 1px solid #e5e5e5;
-    }
-
-    .benefits h2 {
-      font-size: 40px;
-      font-weight: 600;
-      margin-bottom: 60px;
-      text-align: center;
-      color: #1a1a1a;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-    }
-
-    .benefit-item {
-      padding: 28px;
-      background: #ffffff;
-      border-radius: 8px;
-      border-left: 4px solid #1a1a1a;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    }
-
-    .benefit-item h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #1a1a1a;
-    }
-
-    .benefit-item p {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.7;
-    }
-
     /* CTA Section */
     .cta-section {
       padding: 100px 0;
       text-align: center;
       border-top: 1px solid #e5e5e5;
-      background-image: url(./img/pexels-njmn-34621809.jpg);
-             background-position: center center;
-             background-size: cover;
-      }
+      background: #f9f9f9;
+    }
 
     .cta-section h2 {
-      font-size: 44px;
-      font-weight: 600;
+      font-size: 48px;
+      font-weight: 800;
       margin-bottom: 24px;
       color: #1a1a1a;
     }
 
     .cta-section p {
-      font-size: 18px;
+      font-size: 20px;
       color: #666;
-      margin-bottom: 40px;
-      line-height: 1.7;
+      margin-bottom: 48px;
+      line-height: 1.8;
     }
 
     /* Footer */
@@ -228,7 +309,7 @@
       color: #999;
       font-size: 14px;
       text-align: center;
-      background-image: #f9f9f9;
+      background: #ffffff;
     }
 
     /* Responsive */
@@ -237,10 +318,8 @@
         font-size: 36px;
       }
 
-      .features h2,
-      .benefits h2,
-      .cta-section h2 {
-        font-size: 28px;
+      .hero p {
+        font-size: 16px;
       }
 
       nav {
@@ -252,205 +331,118 @@
         gap: 20px;
       }
 
-      .hero {
-        padding: 60px 0 40px;
-      }
-
-      .features,
-      .benefits,
-      .cta-section {
-        padding: 60px 0;
-      }
-    }
-
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #1a1a1a;
-        color: #ffffff;
-      }
-
-      header {
-        background: #1a1a1a;
-        border-bottom-color: #333;
-      }
-
-      .logo {
-        color: #ffffff;
-      }
-
-      nav a {
-        color: #ffffff;
-      }
-
-      nav a:hover {
-        color: #999;
-      }
-
-      .hero h1 {
-        color: #ffffff;
-      }
-
-      .hero p {
-        color: #999;
-      }
-
-      .cta-button {
-        background: #ffffff;
-        color: #1a1a1a;
-      }
-
-      .cta-button:hover {
-        background: #e5e5e5;
-      }
-
-      .features,
-      .cta-section {
-        border-top-color: #333;
+      .cta-secondary {
+        display: block;
+        margin-left: 0;
+        margin-top: 12px;
       }
 
       .features h2,
       .cta-section h2 {
-        color: #ffffff;
+        font-size: 32px;
       }
 
-      .feature-card {
-        background: #2a2a2a;
-        border-color: #333;
+      .hero-image img {
+        max-width: 100%;
       }
 
-      .feature-card h3 {
-        color: #ffffff;
-      }
-
-      .feature-card p {
-        color: #999;
-      }
-
-      .benefits {
-        background: #0a0a0a;
-        border-top-color: #333;
-      }
-
-      .benefits h2 {
-        color: #ffffff;
-      }
-
-      .benefit-item {
-        background: #1a1a1a;
-        border-left-color: #ffffff;
-        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.04);
-      }
-
-      .benefit-item h4 {
-        color: #ffffff;
-      }
-
-      .benefit-item p {
-        color: #999;
-      }
-
-      .cta-section p {
-        color: #999;
-      }
-
-      footer {
-        background: #0a0a0a;
-        border-top-color: #333;
+      .stat-item h4 {
+        font-size: 32px;
       }
     }
   </style>
 </head>
 <body>
   <header class="container">
-    <div class="logo">⚡ Hitting</div>
+    <div class="logo-header">HITTING</div>
     <nav>
       <a href="#features">Fonctionnalités</a>
-      <a href="#benefits">Avantages</a>
-      <a href="#contact">Contact</a>
+      <a href="#stats">Impact</a>
+      <a href="#contact">Rejoindre</a>
     </nav>
   </header>
 
   <section class="hero container">
-    <h1>Organisez vos combats d'interclubs</h1>
-    <p>Hitting simplifie le matching de boxeurs et la gestion des demandes de combats entre clubs. Automatisez vos organisations, réduisez les annulations de dernière minute.</p>
-    <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Rejoindre Hitting</a>
+    <div class="hero-content">
+          <h1>Rechercher. Trouver. Boxer.</h1>
+      <p>Connectez vos boxeurs avec les adversaires idéaux. Automatisez vos demandes de combats et organisez vos galas ou sparrings sans stress.</p>
+      <div>
+        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Essayer</a>
+        <a href="#features" class="cta-button cta-secondary">En savoir plus</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="./img/logohitting.jpeg" alt="Logo Hitting">
+    </div>
   </section>
 
-  <section class="features container" id="features">
-    <h2>Fonctionnalités principales</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🥊</div>
-        <h3>Matching automatique</h3>
-        <p>Trouvez les adversaires compatibles selon la catégorie, le poids et le niveau de vos boxeurs.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>Gestion des demandes</h3>
-        <p>Suivez les demandes de combat, acceptez ou refusez en un clic, réduisez les abandons.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📅</div>
-        <h3>Calendrier intégré</h3>
-        <p>Consultez tous vos combats, événements et disponibilités au même endroit.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">👥</div>
-        <h3>Gestion des boxeurs</h3>
-        <p>Centralisez les informations de vos boxeurs, leur licence FFBoxe, leur historique.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Statistiques</h3>
-        <p>Suivez les victoires, défaites et KO de vos boxeurs en temps réel.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🔔</div>
-        <h3>Notifications</h3>
-        <p>Recevez les alertes de demandes de combat et confirmations instantanément.</p>
+  <section class="stats" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h4>1000+</h4>
+          <p>Boxeurs utilisateurs</p>
+        </div>
+        <div class="stat-item">
+          <h4>50+</h4>
+          <p>Clubs partenaires</p>
+        </div>
+        <div class="stat-item">
+          <h4>500+</h4>
+          <p>Combats organisés</p>
+        </div>
+        <div class="stat-item">
+          <h4>95%</h4>
+          <p>Satisfaction clubs</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="benefits container" id="benefits">
-    <h2>Pourquoi Hitting</h2>
-    <div class="benefits-grid">
-      <div class="benefit-item">
-        <h4>Gagnez du temps</h4>
-        <p>Fini les appels téléphoniques. Tout se fait depuis votre téléphone en quelques secondes.</p>
+  <section class="features container" id="features">
+    <h2>Pourquoi HITTING ?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Rapide</h3>
+        <p>Trouvez les adversaires idéaux en quelques secondes. L'algorithme fait le travail pour vous.</p>
       </div>
-      <div class="benefit-item">
-        <h4>Réduisez les annulations</h4>
-        <p>Les demandes documentées réduisent les abandons de dernière minute.</p>
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Précis</h3>
+        <p>Matching basé sur la catégorie, le poids et le niveau. Zéro approximation.</p>
       </div>
-      <div class="benefit-item">
-        <h4>Simplifiez le matching</h4>
-        <p>L'algorithme fait le travail pour trouver les adversaires idéaux.</p>
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Fiable</h3>
+        <p>Les demandes documentées réduisent les annulations. Construisez un réseau de confiance.</p>
       </div>
-      <div class="benefit-item">
-        <h4>Centralisez vos données</h4>
-        <p>Boxeurs, combats, statistiques : tout en un seul endroit.</p>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Transparent</h3>
+        <p>Suivez tout : demandes, confirmations, statistiques. Rien n'est caché.</p>
       </div>
-      <div class="benefit-item">
-        <h4>Collaborez entre clubs</h4>
-        <p>Connectez-vous avec les autres clubs de votre région facilement.</p>
+      <div class="feature-card">
+        <div class="feature-icon">🏆</div>
+        <h3>Compétitif</h3>
+        <p>Élargissez votre bassin d'adversaires. Connectez-vous avec les meilleurs clubs.</p>
       </div>
-      <div class="benefit-item">
-        <h4>Offert pour vos coaches</h4>
-        <p>Interface simple et intuitive, pas besoin d'être technicien pour l'utiliser.</p>
+      <div class="feature-card">
+        <div class="feature-icon">💪</div>
+        <h3>Motivant</h3>
+        <p>Plus de combats = plus de progression. HITTING crée des opportunités.</p>
       </div>
     </div>
   </section>
 
   <section class="cta-section container" id="contact">
-    <h2>Prêt à transformer votre organisation ?</h2>
-    <p>Rejoignez les clubs qui font confiance à Hitting</p>
-    <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Démarrer gratuitement</a>
+    <h2>Rejoignez les champions</h2>
+    <p>Des clubs leaders font confiance à HITTING</p>
+    <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Commencer maintenant</a>
   </section>
 
   <footer class="container">
-    <p>&copy; 2026 Hitting. Pour les coaches de boxe, par les coaches de boxe.</p>
+    <p>&copy; 2026 HITTING. Rechercher. Trouver. Boxer.</p>
   </footer>
 </body>
 </html>
