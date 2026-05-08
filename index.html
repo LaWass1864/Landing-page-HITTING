@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hitting - Le réseau des champions</title>
+   <link rel="icon" type="image/png" href="https://img.icons8.com/?size=100&id=t3NE3BsOAQwq&format=png&color=000000">
   <style>
     * {
       margin: 0;
@@ -47,6 +47,12 @@
       background-clip: text;
     }
 
+    .header-right {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
     nav {
       display: flex;
       gap: 32px;
@@ -78,6 +84,42 @@
 
     nav a:hover::after {
       width: 100%;
+    }
+
+    /* Language Selector */
+    .language-selector {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all 0.2s;
+      padding: 8px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lang-btn img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .lang-btn.active {
+      opacity: 1;
+      background: rgba(211, 47, 47, 0.1);
+    }
+
+    .lang-btn:hover {
+      opacity: 0.8;
     }
 
     /* Hero Section */
@@ -328,8 +370,16 @@
         font-size: 16px;
       }
 
+      .header-right {
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+      }
+
       nav {
         gap: 16px;
+        width: 100%;
+        justify-content: center;
       }
 
       header {
@@ -365,29 +415,48 @@
 <body>
   <header class="container">
     <div class="logo-header">HITTING</div>
-    <nav>
-      <a href="#features">Fonctionnalités</a>
-      <a href="#stats">Impact</a>
-      <a href="#contact">Rejoindre</a>
-    </nav>
+    <div class="header-right">
+      <nav>
+        <a href="#features">Fonctionnalités</a>
+        <a href="#stats">Impact</a>
+        <a href="#contact">Rejoindre</a>
+      </nav>
+      <div class="language-selector">
+        <button class="lang-btn active" onclick="setLanguage('fr')" title="Français">
+          <img src="https://img.icons8.com/?size=100&id=3muzEmi4dpD5&format=png&color=000000" alt="Français" style="width: 28px; height: 28px;">
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" title="English">
+          <img src="https://img.icons8.com/?size=100&id=t3NE3BsOAQwq&format=png&color=000000" alt="English" style="width: 28px; height: 28px;">
+        </button>
+      </div>
+    </div>
   </header>
 
   <section class="hero container">
     <div class="hero-content">
+      <div class="tagline" data-lang="fr">🥊 Le réseau des champions</div>
+      <div class="tagline" data-lang="en" style="display: none;">🥊 The network of champions</div>
       
-      <h1>Rechercher. Trouver. Boxer.</h1>
-      <p>Connectez vos boxeurs avec les adversaires idéaux. Automatisez vos demandes de combats et organisez vos interclubs sans stress.</p>
+      <h1 data-lang="fr">Rechercher. Trouver. Boxer.</h1>
+      <h1 data-lang="en" style="display: none;">Find. Connect. Fight.</h1>
+      
+      <p data-lang="fr">Connectez vos boxeurs avec les adversaires idéaux. Automatisez vos demandes de combats et organisez vos interclubs sans stress.</p>
+      <p data-lang="en" style="display: none;">Connect your boxers with ideal opponents. Automate fight requests and organize interclub events stress-free.</p>
+      
       <div class="hero-image">
-      <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" target="_blank" rel="noopener noreferrer">
-        <img src="./img/logohitting.jpeg" alt="Logo Hitting" style="cursor: pointer; transition: transform 0.3s;">
-      </a>
-    </div>
+        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" target="_blank" rel="noopener noreferrer">
+          <img src="./img/logohitting.jpeg" alt="Logo Hitting" style="cursor: pointer; transition: transform 0.3s;">
+        </a>
+      </div>
+      
       <div>
-        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Essayer gratuitement</a>
-        <a href="#features" class="cta-button cta-secondary">En savoir plus</a>
+        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button" data-lang="fr">Essayer gratuitement</a>
+        <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button" data-lang="en" style="display: none;">Try for free</a>
+        
+        <a href="#features" class="cta-button cta-secondary" data-lang="fr">En savoir plus</a>
+        <a href="#features" class="cta-button cta-secondary" data-lang="en" style="display: none;">Learn more</a>
       </div>
     </div>
-    
   </section>
 
   <section class="stats" id="stats">
@@ -395,76 +464,126 @@
       <div class="stats-grid">
         <div class="stat-item">
           <h4>50+</h4>
-          <p>Boxeurs utilisateurs</p>
+          <p data-lang="fr">Boxeurs utilisateurs</p>
+          <p data-lang="en" style="display: none;">Active Boxers</p>
         </div>
         <div class="stat-item">
           <h4>10+</h4>
-          <p>Clubs partenaires</p>
+          <p data-lang="fr">Clubs partenaires</p>
+          <p data-lang="en" style="display: none;">Partner Clubs</p>
         </div>
-        <!-- <div class="stat-item">
-          <h4>500+</h4>
-          <p>Combats organisés</p>
-        </div>
-        <div class="stat-item">
-          <h4>95%</h4>
-          <p>Satisfaction clubs</p>
-        </div> -->
       </div>
     </div>
   </section>
 
   <section class="features container" id="features">
-    <h2>Pourquoi HITTING ?</h2>
+    <h2 data-lang="fr">Pourquoi HITTING ?</h2>
+    <h2 data-lang="en" style="display: none;">Why HITTING?</h2>
+    
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">⚡</div>
-        <h3>Rapide</h3>
-        <p>Trouvez les adversaires idéaux en quelques secondes. L'algorithme fait le travail pour vous.</p>
+        <h3 data-lang="fr">Rapide</h3>
+        <h3 data-lang="en" style="display: none;">Fast</h3>
+        <p data-lang="fr">Trouvez les adversaires idéaux en quelques secondes. L'algorithme fait le travail pour vous.</p>
+        <p data-lang="en" style="display: none;">Find ideal opponents in seconds. Our algorithm does the work for you.</p>
       </div>
+      
       <div class="feature-card">
         <div class="feature-icon">🎯</div>
-        <h3>Précis</h3>
-        <p>Matching basé sur la catégorie, le poids et le niveau. Zéro approximation.</p>
+        <h3 data-lang="fr">Précis</h3>
+        <h3 data-lang="en" style="display: none;">Accurate</h3>
+        <p data-lang="fr">Matching basé sur la catégorie, le poids et le niveau. Zéro approximation.</p>
+        <p data-lang="en" style="display: none;">Matching based on weight, category, and level. Zero guesswork.</p>
       </div>
+      
       <div class="feature-card">
         <div class="feature-icon">🤝</div>
-        <h3>Fiable</h3>
-        <p>Les demandes documentées réduisent les annulations. Construisez un réseau de confiance.</p>
+        <h3 data-lang="fr">Fiable</h3>
+        <h3 data-lang="en" style="display: none;">Reliable</h3>
+        <p data-lang="fr">Les demandes documentées réduisent les annulations. Construisez un réseau de confiance.</p>
+        <p data-lang="en" style="display: none;">Documented requests reduce cancellations. Build a trusted network.</p>
       </div>
+      
       <div class="feature-card">
         <div class="feature-icon">📊</div>
-        <h3>Transparent</h3>
-        <p>Suivez tout : demandes, confirmations, statistiques. Rien n'est caché.</p>
+        <h3 data-lang="fr">Transparent</h3>
+        <h3 data-lang="en" style="display: none;">Transparent</h3>
+        <p data-lang="fr">Suivez tout : demandes, confirmations, statistiques. Rien n'est caché.</p>
+        <p data-lang="en" style="display: none;">Track everything: requests, confirmations, stats. Nothing is hidden.</p>
       </div>
+      
       <div class="feature-card">
         <div class="feature-icon">🏆</div>
-        <h3>Compétitif</h3>
-        <p>Élargissez votre bassin d'adversaires. Connectez-vous avec les meilleurs clubs.</p>
+        <h3 data-lang="fr">Compétitif</h3>
+        <h3 data-lang="en" style="display: none;">Competitive</h3>
+        <p data-lang="fr">Élargissez votre bassin d'adversaires. Connectez-vous avec les meilleurs clubs.</p>
+        <p data-lang="en" style="display: none;">Expand your opponent pool. Connect with the best clubs.</p>
       </div>
+      
       <div class="feature-card">
         <div class="feature-icon">💪</div>
-        <h3>Motivant</h3>
-        <p>Plus de combats = plus de progression. HITTING crée des opportunités.</p>
+        <h3 data-lang="fr">Motivant</h3>
+        <h3 data-lang="en" style="display: none;">Motivating</h3>
+        <p data-lang="fr">Plus de combats = plus de progression. HITTING crée des opportunités.</p>
+        <p data-lang="en" style="display: none;">More fights = more progress. HITTING creates opportunities.</p>
       </div>
     </div>
   </section>
 
   <section class="cta-section container" id="contact">
-    <h2>Rejoignez les champions</h2>
-    <p>Des clubs leaders font confiance à HITTING</p>
-    <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button">Commencer maintenant</a>
+    <h2 data-lang="fr">Rejoignez les champions</h2>
+    <h2 data-lang="en" style="display: none;">Join the Champions</h2>
+    
+    <p data-lang="fr">Des clubs leaders font confiance à HITTING</p>
+    <p data-lang="en" style="display: none;">Leading clubs trust HITTING</p>
+    
+    <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button" data-lang="fr">Commencer maintenant</a>
+    <a href="https://hitting.preview.softr.app/accueil?autoUser=true&show-toolbar=true" class="cta-button" data-lang="en" style="display: none;">Start now</a>
   </section>
 
   <footer class="container">
     <div style="margin-bottom: 16px;">
       <p>&copy; 2026 HITTING. Rechercher. Trouver. Boxer.</p>
     </div>
-    <!-- rediriger les liens vers les pages -->
     <div style="font-size: 12px; color: #999;">
       <a href="mentions-legales.html" style="color: #999; text-decoration: none; margin: 0 12px;">Mentions légales</a> |
       <a href="politique-confidentialite.html" style="color: #999; text-decoration: none; margin: 0 12px;">Politique de confidentialité</a> |
       <a href="mailto:contact@hitting.fr" style="color: #999; text-decoration: none; margin: 0 12px;">Contact</a>
     </div>
   </footer>
+
+  <script>
+    function setLanguage(lang) {
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      // Show/hide content by language
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = '';
+        } else {
+          el.style.display = 'none';
+        }
+      });
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+
+      // Save preference
+      localStorage.setItem('hittingLanguage', lang);
+
+       }
+
+    // Load saved language preference on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('hittingLanguage') || 'fr';
+      if (savedLang === 'en') {
+        const enBtn = document.querySelectorAll('.lang-btn')[1];
+        enBtn.click();
+      }
+    });
+  </script>
 </body>
 </html>
