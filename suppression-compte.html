@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Suppression de compte — Hitting</title>
+  <link rel="shortcut icon" href="https://img.icons8.com/?size=100&id=12978&format=png&color=000000" type="image/x-icon">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      color: #1a1a1a;
+      background: #ffffff;
+      line-height: 1.7;
+    }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-header {
+      font-size: 24px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #d32f2f, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+    .back-link { color: #1a1a1a; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .back-link:hover { color: #d32f2f; }
+    main { padding: 48px 0 80px; }
+    h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; }
+    .updated { color: #666; font-size: 14px; margin-bottom: 40px; }
+    h2 { font-size: 20px; font-weight: 700; margin: 32px 0 12px; }
+    p, li { font-size: 15px; color: #333; margin-bottom: 12px; }
+    ol, ul { padding-left: 24px; margin-bottom: 16px; }
+    li { margin-bottom: 8px; }
+    a { color: #d32f2f; }
+    .steps {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 16px 0 32px;
+    }
+    .warning {
+      background: #fff3e0;
+      border-left: 4px solid #ff9800;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 24px 0;
+    }
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid #e5e5e5;
+      color: #999;
+      font-size: 13px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <a href="index.html" class="logo-header">HITTING</a>
+    <a href="index.html" class="back-link">← Retour à l'accueil</a>
+  </header>
+
+  <main class="container">
+    <h1>Suppression de compte et de données</h1>
+    <p class="updated">Dernière mise à jour : 31 août 2026</p>
+
+    <p>Cette page explique comment demander la suppression de votre compte entraîneur Hitting ainsi que de l'ensemble des données associées.</p>
+
+    <h2>Procédure de suppression depuis l'application</h2>
+    <div class="steps">
+      <ol>
+        <li>Ouvrez l'application <strong>Hitting</strong> et connectez-vous à votre compte</li>
+        <li>Rendez-vous dans l'onglet <strong>Mon Compte</strong></li>
+        <li>Faites défiler jusqu'à la section <strong>Abonnement &amp; Sécurité</strong></li>
+        <li>Appuyez sur <strong>Supprimer mon compte</strong></li>
+        <li>Confirmez la suppression dans la fenêtre qui s'affiche</li>
+      </ol>
+    </div>
+
+    <div class="warning">
+      <strong>Cette action est irréversible.</strong> Une fois confirmée, elle ne peut pas être annulée.
+    </div>
+
+    <h2>Demande sans accès à l'application</h2>
+    <p>Si vous ne pouvez pas accéder à l'application (compte perdu, appareil indisponible, etc.), vous pouvez demander la suppression de votre compte par e-mail à <a href="mailto:contact@hitting.fr">contact@hitting.fr</a>, en précisant l'adresse e-mail associée à votre compte Hitting. La demande sera traitée sous 30 jours maximum.</p>
+
+    <h2>Données supprimées</h2>
+    <p>La suppression du compte entraîne la suppression définitive des données suivantes :</p>
+    <ul>
+      <li>Informations de compte : nom, prénom, adresse e-mail, numéro de téléphone</li>
+      <li>Informations de club : nom du club, adresse de la salle, numéro d'affiliation</li>
+      <li>Profils des boxeurs gérés par ce compte : identité, catégorie, palmarès, photos, numéro de licence FFBoxe</li>
+      <li>Historique des demandes de combat associées au compte</li>
+    </ul>
+
+    <h2>Durée de conservation</h2>
+    <p>Les données sont supprimées des bases actives (Firebase, Airtable) immédiatement après confirmation de la suppression du compte. Elles peuvent subsister temporairement dans les sauvegardes techniques de nos hébergeurs pendant une durée maximale de 30 jours, avant suppression complète et définitive.</p>
+
+    <h2>Contact</h2>
+    <p>Pour toute question relative à la suppression de vos données : <a href="mailto:contact@hitting.fr">contact@hitting.fr</a></p>
+  </main>
+
+  <footer class="container">
+    <p>&copy; 2026 HITTING. Tous droits réservés.</p>
+  </footer>
+</body>
+</html>
