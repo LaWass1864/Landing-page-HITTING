@@ -243,19 +243,38 @@
       border-color: #1a1a1a;
     }
 
-    .cta-comingsoon {
+    /* Store badges */
+    .store-badges {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      vertical-align: middle;
+    }
+
+    .store-badges a img {
+      display: block;
+      height: 80px;
+      width: auto;
+      transition: transform 0.3s;
+    }
+
+    .store-badges a:hover img {
+      transform: translateY(-4px);
+    }
+
+    .store-soon {
       display: inline-block;
-      padding: 18px 48px;
+      padding: 10px 20px;
       background: #f0f0f0;
       color: #555;
-      border-radius: 12px;
+      border-radius: 10px;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 13px;
       border: 2px dashed #cccccc;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      cursor: default;
-      pointer-events: none;
     }
 
     /* Stats Section */
@@ -412,6 +431,16 @@
         margin: 12px auto 0 auto;
       }
 
+      .store-badges {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .store-badges a img {
+        height: 72px;
+      }
+
       .features h2,
       .cta-section h2 {
         font-size: 32px;
@@ -462,9 +491,19 @@
       </div>
       
       <div>
-        <span class="cta-comingsoon" data-lang="fr">Bientôt sur Google Play Store et App Store</span>
-        <span class="cta-comingsoon" data-lang="en" style="display: none;">Coming soon on Google Play Store and App Store</span>
-        
+        <div class="store-badges" data-lang="fr">
+          <a href="https://play.google.com/store/apps/details?id=com.lawass1864.hitting" target="_blank" rel="noopener noreferrer">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play">
+          </a>
+          <span class="store-soon">Bientôt sur l'App Store</span>
+        </div>
+        <div class="store-badges" data-lang="en" style="display: none;">
+          <a href="https://play.google.com/store/apps/details?id=com.lawass1864.hitting" target="_blank" rel="noopener noreferrer">
+            <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+          </a>
+          <span class="store-soon">Coming soon on the App Store</span>
+        </div>
+
         <a href="#features" class="cta-button cta-secondary" data-lang="fr">En savoir plus</a>
         <a href="#features" class="cta-button cta-secondary" data-lang="en" style="display: none;">Learn more</a>
       </div>
@@ -550,8 +589,18 @@
     <p data-lang="fr">Des clubs leaders font confiance à HITTING</p>
     <p data-lang="en" style="display: none;">Leading clubs trust HITTING</p>
     
-    <span class="cta-comingsoon" data-lang="fr">Bientôt sur Google Play Store et App Store</span>
-    <span class="cta-comingsoon" data-lang="en" style="display: none;">Coming soon on Google Play Store and App Store</span>
+    <div class="store-badges" data-lang="fr">
+      <a href="https://play.google.com/store/apps/details?id=com.lawass1864.hitting" target="_blank" rel="noopener noreferrer">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png" alt="Disponible sur Google Play">
+      </a>
+      <span class="store-soon">Bientôt sur l'App Store</span>
+    </div>
+    <div class="store-badges" data-lang="en" style="display: none;">
+      <a href="https://play.google.com/store/apps/details?id=com.lawass1864.hitting" target="_blank" rel="noopener noreferrer">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+      </a>
+      <span class="store-soon">Coming soon on the App Store</span>
+    </div>
   </section>
 
   <footer class="container">
@@ -562,6 +611,7 @@
       <a href="mentions-legales.html" style="color: #999; text-decoration: none; margin: 0 12px;">Mentions légales</a> |
       <a href="politique-confidentialite.html" style="color: #999; text-decoration: none; margin: 0 12px;">Politique de confidentialité</a> |
       <a href="mailto:hitting.contact@gmail.com" style="color: #999; text-decoration: none; margin: 0 12px;">Contact</a>
+      <p style="margin-top: 12px;">Google Play et le logo Google Play sont des marques de Google LLC.</p>
     </div>
   </footer>
 
